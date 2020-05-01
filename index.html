@@ -27,33 +27,33 @@
                 <div class="card-body">
                 <h1>Beach Volley ScoreBoard</h1>
                     <div class="mt-3" v-if="this.winningPoints">
-                            <div class="d-inline-flex">
-                                <div class="col-6  text-center ">
-                                    <div class="alert alert-info board" role="alert">{{ teams[1] }}</div>
-                                    <button class="btn btn-warning" v-on:click="plusPoint(1)">Point team 1</button>
-                                </div>
-                                <div class="col-6">
-                                    <div class="alert alert-info board" role="alert"> {{ teams[2] }}</div>
-                                    <button class="btn btn-warning" v-on:click="plusPoint(2)">Point team 2</button>
-                                </div>
+                        <div class="d-inline-flex">
+                            <div class="col-6  text-center ">
+                                <div class="alert alert-info board" role="alert">{{ teams[1] }}</div>
+                                <button class="btn btn-warning" v-on:click="plusPoint(1)">Point team 1</button>
                             </div>
-                            <transition name="fade" mode="out-in">
-                                <div v-if="changeCourt && this.winner == 0" class="alert alert-warning mt-3" role="alert">
-                                    {{ changeCourt }}
-                                </div>
-                                <div v-if="this.winner > 0" class="alert alert-success mt-3" role="alert">
-                                    team {{ this.winner }} winner
-                                </div>
-                            </transition>
+                            <div class="col-6">
+                                <div class="alert alert-info board" role="alert"> {{ teams[2] }}</div>
+                                <button class="btn btn-warning" v-on:click="plusPoint(2)">Point team 2</button>
+                            </div>
+                        </div>
+                        <transition name="fade" mode="out-in">
+                            <div v-if="changeCourt && this.winner == 0" class="alert alert-warning mt-3" role="alert">
+                                {{ changeCourt }}
+                            </div>
+                            <div v-if="this.winner > 0" class="alert alert-success mt-3" role="alert">
+                                team {{ this.winner }} winner
+                            </div>
+                        </transition>
 
-                            <div class="mt-3">
-                                <button class="btn btn-danger" v-on:click="resetScoreBoard()">Reset ScoreBoard</button>
-                            </div>
+                        <div class="mt-3">
+                            <button class="btn btn-danger" v-on:click="resetScoreBoard()">Reset ScoreBoard</button>
+                        </div>
                     </div>
                     <div v-else>
-                            <p>Select the number points to win:</p>
-                            <button class="btn btn-primary" v-on:click="selectWinningPoints(15)">15 points</button>
-                            <button class="btn btn-primary" v-on:click="selectWinningPoints(21)">21 points</button>
+                        <p>Select the number points to win:</p>
+                        <button class="btn btn-primary" v-on:click="selectWinningPoints(15)">15 points</button>
+                        <button class="btn btn-primary" v-on:click="selectWinningPoints(21)">21 points</button>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,6 @@
                                     if (this.winner == 2 && ((this.teams[2] - this.teams[1]) < 2)){
                                         this.winner = 0;
                                     }
-
                                 }
                             }
 
