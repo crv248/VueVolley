@@ -45,7 +45,6 @@
                                 team {{ this.winner }} winner
                             </div>
                         </transition>
-
                         <div class="mt-3">
                             <button class="btn btn-danger" v-on:click="resetScoreBoard()">Reset ScoreBoard</button>
                         </div>
@@ -74,27 +73,22 @@
                     plusPoint: function (team) {
                         if (this.winner === 0) {
                             this.teams[team] += 1;
-                            
                             var totalPoints = 0;
-
                             var i;
                             for (i = 1; i <= Object.keys(this.teams).length; i++) {
                                 totalPoints += parseInt(this.teams[i]);
                                 if (this.teams[i] >= this.winningPoints) {
                                     this.winner = i;
-
                                     if (this.winner == 1 && ((this.teams[1] - this.teams[2]) < 2)){
                                         this.winner = 0;
                                     } else if(this.winner == 1) {
                                         break;
                                     }
-
                                     if (this.winner == 2 && ((this.teams[2] - this.teams[1]) < 2)){
                                         this.winner = 0;
                                     }
                                 }
                             }
-
                             if (totalPoints % (this.winningPoints/3) == 0) {
                                 this.changeCourt = 'Change of Court';
                             } else {
